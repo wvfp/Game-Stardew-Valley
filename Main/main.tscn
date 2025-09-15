@@ -1,3 +1,121 @@
-[gd_scene format=3 uid="uid://ctfkb6mcca4e2"]
+[gd_scene load_steps=16 format=3 uid="uid://ctfkb6mcca4e2"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://cjg3r81kogtfu" path="res://Content/Character/Abigail.png" id="1_yh5la"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2w1kt"]
+size = Vector2(19, 27.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh5la"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w1kt"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvhan"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eunhr"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3v36"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liyct"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib3t1"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6fdm"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(48, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj11h"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qac2q"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o60nc"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3gf5"]
+atlas = ExtResource("1_yh5la")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3v36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh5la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w1kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvhan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eunhr")
+}],
+"loop": true,
+"name": &"walk-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3v36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liyct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib3t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6fdm")
+}],
+"loop": true,
+"name": &"walk-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj11h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qac2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o60nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3gf5")
+}],
+"loop": true,
+"name": &"walk-right",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -13.75)
+shape = SubResource("RectangleShape2D_2w1kt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_k3v36")
+animation = &"walk-right"
+autoplay = "walk-right"
+frame_progress = 0.480204
